@@ -27,6 +27,7 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf \
     zip \
 && rm -rf /var/lib/apt/lists/* \
 && a2enmod rewrite headers \
+&& composer config --global audit.block-insecure false \
 && composer install --prefer-dist \
 && composer dump-autoload --optimize \
 && composer update
